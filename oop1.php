@@ -14,7 +14,7 @@
 /**/
 //машина
 
-class Parent
+class Parents
 {
     public $price;
 }
@@ -39,19 +39,21 @@ interface DontShoot
     public function DontShoot();
 }
 
-interface GetProduct
+interface GetPhone
 {
-    public function GetProduct();
+    public function GetPhone();
 }
-class Cars extends Parent implements HowMuchDoors
+
+class Car extends Parents implements HowMuchDoors
 {
     public $mark;
     public $model;
     public $color;
     public $doors;
-    public function EnoughDoors
+
+    public function EnoughDoors()
     {
-        if ($doors<5)
+        if ($doors < 5)
         {
             return "Машина не для всей семьи";
         }
@@ -65,7 +67,7 @@ $carChevrolet->color = 'yellow';
 $carChevrolet->price = '3000$';
 $carChevrolet->doors = '3';
 
-$carFord = new car();
+$carFord = new Car();
 $carFord->mark = 'Ford';
 $carFord->model = 'Mustang gt';
 $carFord->color = 'grey';
@@ -76,7 +78,7 @@ $carFord->doors = '3';
 
 //телевизор
 
-class TV extends Parent implements GetTV
+class TV extends Parents implements GetTV
 {
     public $mark;
     public $ScreenSize;
@@ -103,7 +105,7 @@ $TvSony->resolution = '4K ULTRA HD';
 
 //ручка
 
-class BallpointPen extends Parent implements GoodPen
+class BallpointPen extends Parents implements GoodPen
 {
     public $mark;
     public $color;
@@ -124,7 +126,7 @@ $PenEtra->color = 'blue';
 
 //утка
 
-class Duck extends Parent implements DontShoot
+class Duck extends Parents implements DontShoot
 {
     public $breed;
     public $dwelling;
@@ -144,23 +146,24 @@ $duckRussia->dwelling = 'Россия';
 
 
 // Товар
-class Goods extends Parent implements GetProduct
+
+class Phone extends Parents implements GetPhone
 {
     public $name;
     public $category;
-    public function getProducts()
+    public function getPhone()
     {
         echo $this->name . ' ' . $this->category . '' . $this->price;
     }
 
 }
 
-$goodsApple = new Goods();
+$goodsApple = new Phone();
 $goodsApple->name = 'iPhone';
 $goodsApple->category = 'Телефон';
 $goodsApple->price = 38000;
 
-$goodsSamsyng = new Goods();
+$goodsSamsyng = new Phone();
 $goodsSamsyng->name = 'Samsung S8';
 $goodsSamsyng->category = 'Телефон';
 $goodsSamsyng->price = 28000;
